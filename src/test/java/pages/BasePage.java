@@ -18,16 +18,16 @@ public class BasePage {
         return ApplicationManager.getDriver().findElements(by);
     }
 
-    protected WebElement getElementFromListByIndex(List<WebElement> list, int index) {
-        return list.get(index);
+    protected WebElement getElementByIndex(By by, int index) {
+        return findElements(by).get(index);
     }
 
     protected void click(By by) {
         findElement(by).click();
     }
 
-    protected String getText(By by) {
-        return findElement(by).getText();
+    protected String getText(WebElement element) {
+        return element.getText();
     }
 
     protected void sendText(By by, String text) {
@@ -38,7 +38,7 @@ public class BasePage {
     }
 
     public boolean isTextEqual(By by, String expectedRes) {
-        String actualRes = getText(by);
+        String actualRes = getText(findElement(by));
         if(actualRes.equals(expectedRes)) {
             return true;
         } else {
