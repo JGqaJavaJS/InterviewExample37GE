@@ -26,6 +26,7 @@ public class ApplicationManager {
 //        WebDriverManager.chromedriver().setup();
 //        driver= new ChromeDriver(options);
         driver = new EventFiringDecorator(new WDListener()).decorate(driver);
+// https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/support/events/EventFiringDecorator.html
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
