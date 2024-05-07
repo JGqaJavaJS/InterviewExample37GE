@@ -44,6 +44,7 @@ public class WDListener implements WebDriverListener {
 
     @Override
     public void beforeFindElements(WebDriver driver, By locator) {
+        logger.info("listener -> search element: " + locator.toString());
         WebDriverListener.super.beforeFindElements(driver, locator);
     }
 
