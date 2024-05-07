@@ -1,19 +1,22 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.ApplePage;
-import pages.BasePage;
+import testdata.TestDataSearch;
 
 public class SearchTests extends BaseTest {
 
     @Test
-    public void searchPage() throws InterruptedException {
-        // TODO - how to add params in locator, write assert and user TestDataApple
+    public void searchPage() {
+        // TODO - Listener, properties, waits
         homePage.clickOnElectonik();
         elektronikPage.clickSmartphones();
         handysSmartphonesPage.clickApple();
-        String res = applePage.getTextItemTitleInSearchResultByIndex(1);
+        String res = applePage
+                .getTextItemTitleInSearchResultByIndex(TestDataSearch.GET_ELEMENT_WITH_INDEX_IN_STORE);
         applePage.fillSearchForm(res);
-        Thread.sleep(10000);
+        Assert.assertTrue(searchResultPage
+                .verifyItemByIndexTitleEqualGiven(TestDataSearch.GET_ELEMENT_WITH_INDEX_IN_SEARCH_RESULT
+                        , res));
     }
 }

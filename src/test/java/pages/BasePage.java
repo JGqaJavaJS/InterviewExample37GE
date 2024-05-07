@@ -37,8 +37,7 @@ public class BasePage {
         element.sendKeys(text);
     }
 
-    public boolean isTextEqual(By by, String expectedRes) {
-        String actualRes = getText(findElement(by));
+    public boolean isTextEqual(String actualRes, String expectedRes) {
         if(actualRes.equals(expectedRes)) {
             return true;
         } else {
